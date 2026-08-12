@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Now / Next</title>
+  <meta name="description" content="Live now/next schedule, per track." />
+  <meta name="theme-color" content="#151515" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1 id="event-name">Loading schedule…</h1>
+    <p id="status-line" class="status-line" hidden>
+      <span id="offline-dot" class="offline-dot" aria-hidden="true"></span>
+      <span id="status" role="status" aria-live="polite"></span>
+    </p>
+    <nav class="view-switch" aria-label="View">
+      <button type="button" id="view-live" aria-pressed="false">Now / Next</button>
+      <button type="button" id="view-full" aria-pressed="true">Full schedule</button>
+    </nav>
+  </header>
+
+  <section id="live-view" hidden>
+    <main id="tracks" class="tracks"></main>
+  </section>
+
+  <section id="full-view">
+    <h2 class="visually-hidden">Full schedule</h2>
+    <div id="day-tabs" class="day-tabs" role="tablist" aria-label="Day"></div>
+    <div id="day-panel" class="day-panel" role="tabpanel" aria-labelledby="" tabindex="0">
+      <div id="day-list" class="day-timeline-wrap"></div>
+    </div>
+  </section>
+
+  <template id="track-card-template">
+    <section class="track-card">
+      <h2 class="track-name"></h2>
+      <div class="now-next" aria-live="polite">
+        <div class="slot slot-now">
+          <p class="slot-label">Now</p>
+          <div class="slot-list" data-field="now-list"></div>
+        </div>
+        <div class="slot slot-next">
+          <p class="slot-label">Next</p>
+          <div class="slot-list" data-field="next-list"></div>
+        </div>
+      </div>
+      <p class="slot-reminder" data-field="reminder" hidden></p>
+    </section>
+  </template>
+
+  <!-- One now/next entry; a slot-list can hold several when a track has
+       multiple concurrent programs (e.g. two sauna sessions at once). -->
+  <template id="now-next-entry-template">
+    <div class="now-next-entry">
+      <p class="slot-title" data-field="title"></p>
+      <p class="slot-meta" data-field="meta"></p>
+      <p class="slot-note" data-field="note" hidden></p>
+    </div>
+  </template>
+
+  <template id="day-session-template">
+    <div class="day-session">
+      <p class="day-session-title" data-field="title"></p>
+      <p class="day-session-meta" data-field="meta"></p>
+      <p class="day-session-note" data-field="note" hidden></p>
+    </div>
+  </template>
+
+  <footer id="notes" class="notes" hidden></footer>
+
+  <noscript>
+    <p class="noscript-message">
+      This page needs JavaScript to show the schedule — both the live now/next view and the full
+      day-by-day listing are loaded and kept in sync by script. Please enable JavaScript, or ask
+      the organizers for a printed schedule.
+    </p>
+  </noscript>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

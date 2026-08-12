@@ -1,0 +1,455 @@
+:root {
+  color-scheme: light dark;
+
+  --bg: #f6f5f3;
+  --surface: #ffffff;
+  --fg: #17171a;
+  --fg-muted: #5b5b63;
+  --border: #dcdad5;
+  --accent: #b5502e;
+  --accent-contrast: #fff8f4;
+  --status-online: #2e7d46;
+  --status-offline: #c53929;
+  --radius: 0.75rem;
+  --space: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121214;
+    --surface: #1b1b1f;
+    --fg: #f1f0ee;
+    --fg-muted: #a7a6ad;
+    --border: #302f35;
+    --accent: #e07b4f;
+    --accent-contrast: #1a0e08;
+    --status-online: #4caf6a;
+    --status-offline: #e5534b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: inherit;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.4;
+  padding-block-end: 3rem;
+}
+
+.page-header {
+  padding: clamp(1.25rem, 2vw + 1rem, 2.5rem) var(--space) 1rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.status-line {
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+}
+
+/* An unconditional `display: flex` here would win over the browser's own
+   `[hidden] { display: none }` rule (author and UA styles tie on specificity,
+   author wins) and make the `hidden` attribute a no-op. Only apply flex when
+   NOT hidden, so the element is left to the UA rule while hidden. */
+.status-line:not([hidden]) {
+  display: flex;
+}
+
+#status {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+}
+
+#status.status-error {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.offline-dot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--status-online);
+}
+
+.offline-dot.is-offline {
+  background: var(--status-offline);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .offline-dot {
+    transition: background-color 0.3s ease;
+  }
+}
+
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--space);
+  padding: 0 var(--space);
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.track-card {
+  container-type: inline-size;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space);
+}
+
+.track-name {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.now-next {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@container (min-width: 24rem) {
+  .now-next {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.slot {
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) - 0.25rem);
+  background: var(--bg);
+}
+
+.slot-now {
+  border-inline-start: 0.3rem solid var(--accent);
+}
+
+.slot-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+}
+
+.slot-title {
+  margin: 0 0 0.15rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.slot-meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+.slot-note {
+  margin: 0.5rem 0 0;
+  padding-inline-start: 0.6rem;
+  border-inline-start: 0.2rem solid var(--accent);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--fg-muted);
+}
+
+.slot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.slot-empty {
+  color: var(--fg-muted);
+  font-weight: 400;
+}
+
+/* Separates concurrent entries within one slot (e.g. two sauna programs both "now"). */
+.now-next-entry + .now-next-entry {
+  padding-block-start: 0.6rem;
+  border-block-start: 1px dashed var(--border);
+}
+
+.slot-reminder {
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 0.25rem);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.view-switch {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-block-start: 0.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.view-switch button {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.view-switch button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+}
+
+#full-view {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 0 var(--space);
+  text-align: center; /* centers .day-tabs below, same mechanism as .view-switch in the header */
+}
+
+.day-tabs {
+  display: inline-flex; /* inline so text-align above centers it; still a flex row internally */
+  max-width: 100%; /* clamp to the container instead of centering into page overflow */
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-block: 0.25rem 0.75rem;
+  text-align: initial; /* don't let the centered ancestor affect the tab labels themselves */
+}
+
+.day-tabs [role="tab"] {
+  flex: none;
+  font: inherit;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.day-tabs [role="tab"][aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+}
+
+.day-panel {
+  text-align: initial; /* undo the centering from #full-view — program blocks stay left-aligned */
+  outline-offset: 0.25rem;
+}
+
+.day-empty {
+  color: var(--fg-muted);
+  padding: 1rem 0;
+}
+
+.day-timeline-wrap {
+  --minute-height: 0.14rem; /* 1 hour = 8.4rem; tweak this one value to change the whole timeline's density */
+  /* Bounded and independently scrollable, so a short day (e.g. just one
+     check-out reminder) renders at its own small size instead of inheriting
+     leftover page scroll from a longer day, and a long day scrolls in place
+     without making the whole page (header, day tabs) scroll along with it. */
+  max-height: calc(100vh - 16rem);
+  overflow: auto;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: 3.5rem repeat(var(--track-count), minmax(14rem, 1fr));
+  gap: 0 0.75rem;
+  align-items: start;
+}
+
+.day-axis {
+  position: relative;
+  height: calc(var(--timeline-minutes) * var(--minute-height));
+  margin-block-start: 2.3rem; /* aligns with the top of the track bodies, below the sticky-height name row */
+}
+
+.day-axis-mark {
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(var(--offset-minutes) * var(--minute-height));
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.day-track {
+  min-width: 0;
+}
+
+.day-track-name {
+  margin: 0 0 0.5rem;
+  padding-block-end: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: hsl(var(--track-hue, 20) 60% 34%);
+  border-block-end: 0.2rem solid hsl(var(--track-hue, 20) 60% 45%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .day-track-name {
+    color: hsl(var(--track-hue, 20) 65% 70%);
+  }
+}
+
+.day-track-body {
+  position: relative;
+  height: calc(var(--timeline-minutes) * var(--minute-height));
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--border) 0,
+    var(--border) 1px,
+    transparent 1px,
+    transparent calc(60 * var(--minute-height))
+  );
+}
+
+.day-session {
+  /* Sessions overlapping in time (e.g. two concurrent Thursday-night sauna
+     programs) render side by side: --lane-count is that overlap cluster's
+     concurrency and --lane is this session's 0-based slot within it. */
+  --lane-gap: 0.4rem;
+  --lane-width: calc((100% - (var(--lane-count, 1) - 1) * var(--lane-gap)) / var(--lane-count, 1));
+  position: absolute;
+  inset-inline-start: calc(var(--lane, 0) * (var(--lane-width) + var(--lane-gap)));
+  width: var(--lane-width);
+  top: calc(var(--offset-minutes) * var(--minute-height));
+  height: calc(var(--duration-minutes) * var(--minute-height));
+  overflow: auto;
+  padding: 0.4rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-inline-start: 0.25rem solid hsl(var(--track-hue, 20) 55% 45%);
+  border-radius: calc(var(--radius) - 0.35rem);
+}
+
+.day-session-instant {
+  border-style: dashed;
+}
+
+.day-session-current {
+  border-color: var(--accent);
+  border-inline-start-width: 0.3rem;
+  background: hsl(var(--track-hue, 20) 55% 95%);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  .day-session-current {
+    background: hsl(var(--track-hue, 20) 35% 20%);
+  }
+}
+
+.day-session-title {
+  margin: 0 0 0.15rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.day-session-meta {
+  margin: 0;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-muted);
+}
+
+.day-session-note {
+  margin: 0.4rem 0 0;
+  padding-inline-start: 0.6rem;
+  border-inline-start: 0.2rem solid var(--accent);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--fg-muted);
+}
+
+.notes {
+  max-width: 72rem;
+  margin: 2rem auto 0;
+  padding: 0 var(--space);
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+.notes ul {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.noscript-message {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+:focus-visible {
+  outline: 0.15rem solid var(--accent);
+  outline-offset: 0.15rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .track-card {
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

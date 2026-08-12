@@ -1,0 +1,401 @@
+{
+  "event": "Hakkerileiri 2026",
+  "timezone": "+03:00",
+  "year_assumed": 2026,
+  "tracks": [
+    {
+      "id": "workshop",
+      "name": "Workshop track"
+    },
+    {
+      "id": "talks",
+      "name": "Talks, Disobey Stage"
+    },
+    {
+      "id": "sauna",
+      "name": "Leisure"
+    },
+    {
+      "id": "other",
+      "name": "Other camp events"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "mon-1",
+      "day": "2026-08-10",
+      "track": "other",
+      "start": "2026-08-10T12:00:00+03:00",
+      "end": "2026-08-10T13:00:00+03:00",
+      "author": null,
+      "title": "Loading camp",
+      "kind": "block"
+    },
+    {
+      "id": "mon-2",
+      "day": "2026-08-10",
+      "track": "other",
+      "start": "2026-08-10T15:00:00+03:00",
+      "end": "2026-08-10T15:00:00+03:00",
+      "author": null,
+      "title": "Cabins available",
+      "kind": "instant"
+    },
+    {
+      "id": "mon-2.5",
+      "day": "2026-08-10",
+      "track": "other",
+      "start": "2026-08-10T16:00:00+03:00",
+      "end": "2026-08-10T16:00:00+03:00",
+      "author": null,
+      "title": "Saimaa Villa cabins available",
+      "kind": "instant"
+    },
+    {
+      "id": "mon-3",
+      "day": "2026-08-10",
+      "track": "talks",
+      "start": "2026-08-10T16:30:00+03:00",
+      "end": "2026-08-10T17:00:00+03:00",
+      "author": null,
+      "title": "Opening ceremony",
+      "kind": "block"
+    },
+    {
+      "id": "mon-4",
+      "day": "2026-08-10",
+      "track": "talks",
+      "start": "2026-08-10T17:00:00+03:00",
+      "end": "2026-08-10T18:00:00+03:00",
+      "author": "Dist",
+      "title": "Hacker Mindset",
+      "kind": "block"
+    },
+    {
+      "id": "mon-5",
+      "day": "2026-08-10",
+      "track": "other",
+      "start": "2026-08-10T18:00:00+03:00",
+      "end": "2026-08-10T20:00:00+03:00",
+      "author": null,
+      "title": "Brewing workshop",
+      "kind": "block"
+    },
+    {
+      "id": "mon-6",
+      "day": "2026-08-10",
+      "track": "sauna",
+      "start": "2026-08-10T18:00:00+03:00",
+      "end": "2026-08-10T22:00:00+03:00",
+      "author": null,
+      "title": "Sauna",
+      "kind": "block"
+    },
+    {
+      "id": "tue-1",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T12:00:00+03:00",
+      "end": "2026-08-11T13:00:00+03:00",
+      "author": "tk0",
+      "title": "Badge Hacking Introduction",
+      "kind": "block"
+    },
+    {
+      "id": "tue-2",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T13:00:00+03:00",
+      "end": "2026-08-11T14:00:00+03:00",
+      "author": "hasanen",
+      "title": "Modern AppSec",
+      "kind": "block"
+    },
+    {
+      "id": "tue-3",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T14:00:00+03:00",
+      "end": "2026-08-11T15:00:00+03:00",
+      "author": "Jussi",
+      "title": "The Long Run: Thoughts on having a meaningful security analyst career",
+      "kind": "block"
+    },
+    {
+      "id": "tue-4",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T15:00:00+03:00",
+      "end": "2026-08-11T16:00:00+03:00",
+      "author": "Annenaattori & Jussi",
+      "title": "Data & AI act ihmettelyä",
+      "kind": "block"
+    },
+    {
+      "id": "tue-5",
+      "day": "2026-08-11",
+      "track": "workshop",
+      "start": "2026-08-11T16:00:00+03:00",
+      "end": "2026-08-11T18:00:00+03:00",
+      "author": "Ken & Tomi",
+      "title": "Cat Ear Workshop",
+      "kind": "block",
+      "note": "Orders have already been placed; participants receive their items at the workshop."
+    },
+    {
+      "id": "tue-6",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T17:00:00+03:00",
+      "end": "2026-08-11T18:00:00+03:00",
+      "author": null,
+      "title": "Lightning talks (15 minutes of your thoughts)",
+      "kind": "block"
+    },
+    {
+      "id": "tue-7",
+      "day": "2026-08-11",
+      "track": "workshop",
+      "start": "2026-08-11T18:00:00+03:00",
+      "end": "2026-08-11T20:00:00+03:00",
+      "author": null,
+      "title": "Networking",
+      "kind": "block"
+    },
+    {
+      "id": "tue-8",
+      "day": "2026-08-11",
+      "track": "talks",
+      "start": "2026-08-11T18:00:00+03:00",
+      "end": "2026-08-11T20:00:00+03:00",
+      "author": null,
+      "title": "Networking",
+      "kind": "block"
+    },
+    {
+      "id": "tue-9",
+      "day": "2026-08-11",
+      "track": "sauna",
+      "start": "2026-08-11T18:00:00+03:00",
+      "end": "2026-08-12T02:00:00+03:00",
+      "author": null,
+      "title": "Sauna",
+      "kind": "block",
+      "note": "Sponsored by korteke."
+    },
+    {
+      "id": "wed-1",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T11:00:00+03:00",
+      "end": "2026-08-12T12:00:00+03:00",
+      "author": "Atteket & Zokol",
+      "title": "Lockpick workshop",
+      "kind": "block"
+    },
+    {
+      "id": "wed-2",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T12:00:00+03:00",
+      "end": "2026-08-12T13:00:00+03:00",
+      "author": "Dist & Sanduuz",
+      "title": "NFC workshop",
+      "kind": "block"
+    },
+    {
+      "id": "wed-3",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T13:00:00+03:00",
+      "end": "2026-08-12T14:00:00+03:00",
+      "author": "Dist",
+      "title": "Introduction to the world of NFC",
+      "kind": "block"
+    },
+    {
+      "id": "wed-4",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T14:00:00+03:00",
+      "end": "2026-08-12T15:00:00+03:00",
+      "author": "Sanduuz",
+      "title": "NFC Tech",
+      "kind": "block"
+    },
+    {
+      "id": "wed-5",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T15:00:00+03:00",
+      "end": "2026-08-12T16:00:00+03:00",
+      "author": "Satu & Neko",
+      "title": "Hack AI",
+      "kind": "block"
+    },
+    {
+      "id": "wed-6",
+      "day": "2026-08-12",
+      "track": "talks",
+      "start": "2026-08-12T16:00:00+03:00",
+      "end": "2026-08-12T17:00:00+03:00",
+      "author": "Paaris",
+      "title": "ELSO101",
+      "kind": "block"
+    },
+    {
+      "id": "wed-7",
+      "day": "2026-08-12",
+      "track": "talks",
+      "start": "2026-08-12T17:00:00+03:00",
+      "end": "2026-08-12T18:00:00+03:00",
+      "author": "Otter",
+      "title": "International Hacker Camps and Hacker Culture",
+      "kind": "block"
+    },
+    {
+      "id": "wed-8",
+      "day": "2026-08-12",
+      "track": "talks",
+      "start": "2026-08-12T18:00:00+03:00",
+      "end": "2026-08-12T20:00:00+03:00",
+      "author": null,
+      "title": "Lightning talks (15 minutes of your thoughts)",
+      "kind": "block"
+    },
+    {
+      "id": "wed-9",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T18:00:00+03:00",
+      "end": "2026-08-12T20:00:00+03:00",
+      "author": null,
+      "title": "Networking",
+      "kind": "block"
+    },
+    {
+      "id": "wed-10",
+      "day": "2026-08-12",
+      "track": "sauna",
+      "start": "2026-08-12T18:30:00+03:00",
+      "end": "2026-08-13T02:00:00+03:00",
+      "author": null,
+      "title": "Sauna",
+      "kind": "block",
+      "note": "Sponsored by Koteco Oy, Kymmenen hunttia Oy & Semantti Oy."
+    },
+    {
+      "id": "wed-11",
+      "day": "2026-08-12",
+      "track": "workshop",
+      "start": "2026-08-12T20:00:00+03:00",
+      "end": "2026-08-12T22:00:00+03:00",
+      "author": "rundiable & whereisgiz",
+      "title": "Conspiracy Theories",
+      "kind": "block"
+    },
+    {
+      "id": "thu-1",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T12:00:00+03:00",
+      "end": "2026-08-13T13:00:00+03:00",
+      "author": "Karo",
+      "title": "Application Security",
+      "kind": "block"
+    },
+    {
+      "id": "thu-2",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T13:00:00+03:00",
+      "end": "2026-08-13T14:00:00+03:00",
+      "author": "Heikki Stark",
+      "title": "Authenticated or confused",
+      "kind": "block"
+    },
+    {
+      "id": "thu-3",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T14:00:00+03:00",
+      "end": "2026-08-13T15:00:00+03:00",
+      "author": "Jan",
+      "title": "PQC in 2026",
+      "kind": "block"
+    },
+    {
+      "id": "thu-4",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T15:00:00+03:00",
+      "end": "2026-08-13T16:00:00+03:00",
+      "author": "Markus",
+      "title": "Government IR story time",
+      "kind": "block"
+    },
+    {
+      "id": "thu-5",
+      "day": "2026-08-13",
+      "track": "workshop",
+      "start": "2026-08-13T15:00:00+03:00",
+      "end": "2026-08-13T17:00:00+03:00",
+      "author": "Acl & Kaisa",
+      "title": "Pizza Workshop",
+      "location": "Villa Kaima",
+      "kind": "block"
+    },
+    {
+      "id": "thu-6",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T17:00:00+03:00",
+      "end": "2026-08-13T18:00:00+03:00",
+      "author": null,
+      "title": "Closing ceremony",
+      "kind": "block"
+    },
+    {
+      "id": "thu-7",
+      "day": "2026-08-13",
+      "track": "sauna",
+      "start": "2026-08-13T18:00:00+03:00",
+      "end": "2026-08-14T02:00:00+03:00",
+      "author": null,
+      "title": "Sauna",
+      "kind": "block"
+    },
+    {
+      "id": "thu-8",
+      "day": "2026-08-13",
+      "track": "talks",
+      "start": "2026-08-13T18:00:00+03:00",
+      "end": "2026-08-13T20:00:00+03:00",
+      "author": null,
+      "title": "Networking",
+      "kind": "block"
+    },
+    {
+      "id": "thu-9",
+      "day": "2026-08-13",
+      "track": "sauna",
+      "start": "2026-08-13T20:00:00+03:00",
+      "end": "2026-08-14T04:00:00+03:00",
+      "author": null,
+      "title": "LAVATANSSIT!",
+      "location": "Disobey Stage",
+      "kind": "block"
+    },
+    {
+      "id": "fri-1",
+      "day": "2026-08-14",
+      "track": "other",
+      "start": "2026-08-14T12:00:00+03:00",
+      "end": "2026-08-14T12:00:00+03:00",
+      "author": null,
+      "title": "Check-out deadline",
+      "kind": "instant"
+    }
+  ],
+  "notes": []
+}
