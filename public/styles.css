@@ -329,8 +329,12 @@ body {
 }
 
 .day-track-name {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   margin: 0 0 0.5rem;
   padding-block-end: 0.4rem;
+  background: var(--bg);
   font-size: 0.95rem;
   font-weight: 700;
   color: hsl(var(--track-hue, 20) 60% 34%);
