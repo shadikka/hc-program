@@ -1,10 +1,10 @@
 {
-  "id": "/",
+  "id": "./",
   "name": "Hakkerileiri 2026",
   "short_name": "Hakkerileiri 2026",
   "description": "Hakkerileiri 2026 schedule, now at your fingertips.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#f6f5f3",
