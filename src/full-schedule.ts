@@ -116,6 +116,7 @@ function layoutLanes(sessions: Session[]): Map<Session, LaneInfo> {
  */
 export class DayTimelineRenderer {
   private currentRefs: CurrentRef[] = [];
+  private lastRenderedDay: string | null = null;
 
   constructor(
     private readonly containerEl: HTMLElement,
@@ -123,12 +124,19 @@ export class DayTimelineRenderer {
   ) {}
 
   render(day: string, tracks: Track[], byTrack: Map<string, Session[]>): void {
-    this.containerEl.textContent = "";
-    this.currentRefs = [];
     // The container persists across renders (only its content is rebuilt), so
     // an old day's scroll position would otherwise carry over — e.g. leaving
     // a short day's content scrolled past after switching from a long one.
-    this.containerEl.scrollTo(0, 0);
+    // But a periodic schedule refresh re-renders the *same* day too (see
+    // app.ts's `dayTabs.select` call in `refreshSchedule`), and there the
+    // user's scroll position should be kept, not yanked back to the top.
+    const daySwitched = day !== this.lastRenderedDay;
+    const scrollTop = this.containerEl.scrollTop;
+    this.lastRenderedDay = day;
+
+    this.containerEl.textContent = "";
+    this.currentRefs = [];
+    if (daySwitched) this.containerEl.scrollTo(0, 0);
 
     const visibleTracks = tracks.filter((track) => (byTrack.get(track.id)?.length ?? 0) > 0);
     if (visibleTracks.length === 0) {
@@ -155,6 +163,7 @@ export class DayTimelineRenderer {
 
     this.containerEl.append(grid);
     this.highlightCurrent(Date.now());
+    if (!daySwitched) this.containerEl.scrollTop = scrollTop;
   }
 
   /** Toggles the "happening now" style on already-rendered blocks; doesn't rebuild anything. */
